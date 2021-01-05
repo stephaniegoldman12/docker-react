@@ -1,0 +1,12 @@
+# to run docker run ID npm run test
+language: generic
+
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t stephaniegoldman12/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true stephaniegoldman12/docker-react npm run test
